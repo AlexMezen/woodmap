@@ -1,0 +1,324 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Деревянная карта світу на стіну чорна</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .header {
+      height: 100px;
+      background-color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+
+
+    .main {
+      display: flex;
+      height: auto;
+      width: 90%;
+      background-color: #f0f0f0;
+      justify-content: space-between;
+      
+    }
+
+    .left {
+      width: 45%;
+      background-size: cover;
+      background-position: center;
+      margin-top: 30px;
+      margin-left: 30px;
+      
+    }
+
+    .right {
+      width: 45%;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .title {
+      color: #90e705;
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .text {
+      background-color: #d3d3d3;
+      padding: 10px;
+      font-size: 18px;
+      width: 90%;
+      line-height: 1.5;
+      box-shadow: 0 0 15px 15px #d3d3d3;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      color: white;
+      background-color: #007bd2c1;
+      padding: 10px 30px;
+      margin-bottom: 15px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .button:hover {
+      background-color: white;
+      color: #007bd2c1;
+    }
+    .big-photo{
+        width: 95%;
+        height: 95%;
+        object-fit: cover;
+        margin-top: 10px;
+    }
+
+    .wood-map-size-block{
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      width: 90%;
+      align-items: center;
+      margin-top: 60px;
+      border-left: 2px solid #90e705;
+      border-right: 2px solid #90e705;
+    }
+    .size-title{
+        background-color: black;
+        color: #90e705;
+        width: 95%;
+        text-align: center;
+        padding: 10;
+    }
+    .size-variants{
+        width: 90%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 50px;
+    }
+    .size-item{
+    width:23%;
+    background-color: #f0f0f0;
+    position: relative;
+    height: 100px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.size-item:hover{
+    transform: scale(1.1) translateY(-5px);
+    cursor: pointer;
+}
+
+.size-item:hover .size-letter{
+    color: black;
+}
+
+.size-item:hover .size{
+    color: #90e705;
+}
+
+.size-letter{
+    color: #90e705;
+    position: absolute;
+    font-size: 4rem;
+    top: -40%;
+    left: 5%;
+    transition: color 0.2s ease-in-out;
+}
+
+.size{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 50px;
+    margin-left: 15px;
+    color: black;
+    transition: color 0.2s ease-in-out;
+}
+
+.wood-map-engraving-options{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 90%;
+    align-items: center;
+    margin-top: 70px;
+    border-left: 2px solid black;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.wood-map-engraving-options::before{
+    content: "";
+    background-image: url("https://images.unsplash.com/photo-1524661135-423995f22d0b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bWFwfGVufDB8fDB8fHww");
+    filter: saturate(10%);
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 96.6%;
+    height: 100%;
+    z-index: -1;
+    margin-left:10px ;
+}
+
+
+    .map-variants{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        margin-top: 50px;
+    }
+.map-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+
+}
+.map-item:hover .small-photo{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+.map-item:hover .round-number{
+background-color: black;
+color: yellow;
+}
+.small-photo{
+    width: 80%;
+    height: 80%;
+    transition: transform 0.3s ease-in-out;
+
+}
+.map-text{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.map-title{
+    margin-bottom: 20px;
+}
+.round-number{
+    border-radius: 50%;
+    background-color: yellow;
+    font-size: 1.5rem;
+    font-weight: 600;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -30px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    z-index: 1;
+}
+    @media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+  }
+  .left, .right{
+    width: 95%;
+  }
+  .button{
+    width: 90%;
+    text-align: center;
+  }
+  .size-variants {
+    flex-wrap: wrap;
+  }
+  .map-variants{
+    flex-wrap: wrap;
+  }
+  .map-item{
+    width: 51%;
+  }
+
+  .size-item {
+    width: 48%; 
+    margin-bottom: 40px;
+  }
+}
+
+
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <section class="main">
+      <div class="left">
+        <h1 class="title">Дерев'яна карта світу на стіну чорна</h1>
+        <p class="text">Ця карта світу стане чудовим доповненням до вашого інтер'єру. Вона виготовлена з високоякісного дерева, яке оброблено спеціальними засобами для захисту від вологи і пилу. Карта має детальну гравіровку країн і міст, а також кольорові іконки різних видів транспорту. Ви можете вибрати розмір карти відповідно до вашого простору і смаку.</p>
+        <a href="#" class="button">Перейти до каталогу</a>
+      </div>
+      <div class="right"><img class="big-photo" src="https://images.unsplash.com/photo-1704975986930-0c09f513c985?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOXx8fGVufDB8fHx8fA%3D%3D" alt="Main map"/></div>
+    </section>
+    <section class="wood-map-size-block">
+<h2 class="size-title">КАРТА СВIТУ З ДЕРЕВА: ДОСТУПНI РОЗМIРИ</h2>
+<div class="size-variants">
+<div class="size-item">
+<h1 class="size-letter">M</h1>
+<p class="size">100x60 см</p>
+</div>
+<div class="size-item">
+    <h1 class="size-letter">L</h1>
+    <p class="size">150x90 см</p>
+    </div>
+    <div class="size-item">
+        <h1 class="size-letter">XL</h1>
+        <p class="size">200x120 см</p>
+        </div>
+        <div class="size-item">
+            <h1 class="size-letter">XXL</h1>
+            <p class="size">300x175 см</p>
+            </div>
+</div>
+    </section>
+    <section class="wood-map-engraving-options">
+        <h2 class="size-title">ДЕРЕВ'ЯНА МАПА СВIТУ: ВАРIАНТИ ГРАВIЮВАННЯ</h2>
+        <div class="map-variants">
+            <div class="map-item">
+                <h3 class="map-title">PURE</h3>
+                <img class="small-photo" src="https://images.unsplash.com/photo-1554852446-219205b33bbb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fG1hcHxlbnwwfHwwfHx8MA%3D%3D" alt="Map engraving"/>
+                <p class="round-number">1</p>
+                <p class="map-text">text</p>
+            </div>
+            <div class="map-item">
+                <h3 class="map-title">PRIMARY</h3>
+                <img class="small-photo" src="https://images.unsplash.com/photo-1554852446-219205b33bbb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fG1hcHxlbnwwfHwwfHx8MA%3D%3D" alt="Map engraving"/>
+                <p class="round-number">2</p>
+                <p class="map-text">text</p>
+            </div>
+            <div class="map-item">
+                <h3 class="map-title">TOP 1</h3>
+                <img class="small-photo" src="https://images.unsplash.com/photo-1554852446-219205b33bbb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fG1hcHxlbnwwfHwwfHx8MA%3D%3D" alt="Map engraving"/>
+                <p class="round-number">3</p>
+                <p class="map-text">text</p>
+            </div>
+        </div>
+
+    </section>
+  </div>
+</body>
+</html>
